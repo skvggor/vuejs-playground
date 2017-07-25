@@ -5,14 +5,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-		<title>Vue.js minimum example</title>
+		<title>Vue.js | events</title>
 	</head>
 	<body>
-		<div id="vuejsapp">
+		<section id="vuejsapp">
+			<input v-model="member" v-on:keyup.enter="save" id="name" type="text" placeholder="Name">
 
-			<h1>{{ message }}</h1>
-
-		</div>
+			<ul v-if="totalMembers.length > 0" class="saved-members">
+				<li v-for="member in totalMembers" v-html="member"></li>
+			</ul>
+		</section>
 
 		<script src="https://unpkg.com/vue"></script>
 		<script src="js/main.js"></script>
