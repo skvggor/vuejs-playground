@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+		<style>
+			input {
+				box-sizing: border-box;
+				height: 30px;
+				padding: 10px;
+			}
+
+			input:focus {
+				border: 2px solid #f012be;
+				outline: 0;
+			}
+
+			.chart {
+				padding-top: 10px;
+			}
+
+			.chart div,
+			.chart div:after {
+				transition: all .7s ease;
+			}
+
+			.chart div {
+				background-color: #f012be;
+				box-sizing: border-box;
+				height: 30px;
+				margin-bottom: 1px;
+				position: relative;
+			}
+
+			.chart div:after {
+				color: #000;
+				content: attr(data-info);
+				display: block;
+				font-family: Arial, sans-serif;
+				font-size: 11px;
+				left: calc(100% + 10px);
+				line-height: 30px;
+				position: absolute;
+				right: 0;
+				width: 120px;
+			}
+
+			.chart div:hover {
+				opacity: .6;
+			}
+
+			.chart div:hover:after {
+				color: #f012be;
+			}
+		</style>
+
+		<title>Vue.js | Dynamic Chart</title>
+	</head>
+	<body>
+		<section id="vuejsapp">
+			<div class="dataset">
+				<input v-model="dataset[0]" v-on:change="update" type="number" placeholder="Line 1 data">
+				<input v-model="dataset[1]" v-on:change="update" type="number" placeholder="Line 2 data">
+				<input v-model="dataset[2]" v-on:change="update" type="number" placeholder="Line 3 data">
+				<input v-model="dataset[3]" v-on:change="update" type="number" placeholder="Line 4 data">
+			</div>
+
+			<div class="chart"></div>
+		</section>
+
+
+		<script src="https://unpkg.com/vue"></script>
+		<script src="https://unpkg.com/d3@latest/build/d3.min"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
