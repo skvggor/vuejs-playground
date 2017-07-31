@@ -15,12 +15,21 @@
 				height: 300px;
 				width: 100%;
 			}
+
+			.coordinates {
+				margin-bottom: 20px;
+			}
 		</style>
 
 		<title>Vue.js | Map</title>
 	</head>
 	<body>
 		<section id="app">
+			<div class="coordinates">
+				<input v-model="coordinates[0]" @change="update" type="number" class="lat" placeholder="Latitude"><br>
+				<input v-model="coordinates[1]" @change="update" type="number" class="lon" placeholder="Longitude">
+			</div>
+
 			<div id="map"></div>
 		</section>
 
